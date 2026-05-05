@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../data/results_repository.dart';
 import '../models/game_result.dart';
 import '../models/question.dart';
+import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
+import 'clear_overlay.dart';
 import 'shared_widgets.dart';
 
 class _SlotState {
@@ -78,6 +80,7 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
 
   void _tapWord(String token) {
     if (_questionComplete) return;
+    SoundService.instance.playTap();
     final slot = _slots.where((s) => s.filledToken == token).firstOrNull;
     if (slot != null) {
       setState(() {
@@ -96,6 +99,7 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
 
     if (_selectedToken == null) {
       if (slot.isFilled) {
+        SoundService.instance.playTap();
         setState(() {
           _selectedToken = slot.filledToken;
           slot.filledToken = null;
@@ -107,6 +111,7 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
     final token = _selectedToken!;
     if (slot.isFilled) return;
 
+    SoundService.instance.playSlotFill();
     setState(() {
       slot.filledToken = token;
       _selectedToken = null;
@@ -128,6 +133,7 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
       return;
     }
 
+    SoundService.instance.playWrong();
     setState(() {
       for (final id in incorrectIds) {
         final slot = _slots.firstWhere((s) => s.id == id);
@@ -142,6 +148,7 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
   }
 
   void _completeQuestion() {
+    SoundService.instance.playCorrect();
     setState(() {
       if (_mistakesOnQuestion == 0) {
         _combo++;
@@ -180,53 +187,20 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
       correct: _correctCount,
       total: _questions.length,
     )));
-    showDialog(
+    showClearOverlay(
       context: context,
-      barrierDismissible: false,
-      builder: (ctx) => AlertDialog(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text('全問クリア！',
-            style: TextStyle(fontWeight: FontWeight.w800)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.emoji_events_rounded,
-                color: Color(0xFFFF9F1C), size: 56),
-            const SizedBox(height: 12),
-            Text(
-              '$_score 点',
-              style: const TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w900,
-                  color: Color(0xFF4361EE)),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(ctx).pop();
-              Navigator.of(context).pop();
-            },
-            child: const Text('ホームへ'),
-          ),
-          FilledButton(
-            onPressed: () {
-              Navigator.of(ctx).pop();
-              setState(() {
-                _questionIndex = 0;
-                _score = 0;
-                _combo = 0;
-                _correctCount = 0;
-                _questions.shuffle();
-                _initQuestion();
-              });
-            },
-            child: const Text('もう一度'),
-          ),
-        ],
-      ),
+      score: _score,
+      correct: _correctCount,
+      total: _questions.length,
+      onHome: () => Navigator.of(context).pop(),
+      onRetry: () => setState(() {
+        _questionIndex = 0;
+        _score = 0;
+        _combo = 0;
+        _correctCount = 0;
+        _questions.shuffle();
+        _initQuestion();
+      }),
     );
   }
 

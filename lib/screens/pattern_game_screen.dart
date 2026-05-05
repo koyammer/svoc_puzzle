@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../data/results_repository.dart';
 import '../models/game_result.dart';
 import '../models/question.dart';
+import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
+import 'clear_overlay.dart';
 import 'shared_widgets.dart';
 
 class PatternGameScreen extends StatefulWidget {
@@ -53,6 +55,11 @@ class _PatternGameScreenState extends State<PatternGameScreen> {
   void _selectAnswer(String pattern) {
     if (_answered) return;
     final correct = pattern == _question.pattern;
+    if (correct) {
+      SoundService.instance.playCorrect();
+    } else {
+      SoundService.instance.playWrong();
+    }
     setState(() {
       _selectedChoice = pattern;
       _answered = true;
@@ -92,54 +99,22 @@ class _PatternGameScreenState extends State<PatternGameScreen> {
       correct: _correctCount,
       total: _questions.length,
     )));
-    showDialog(
+    showClearOverlay(
       context: context,
-      barrierDismissible: false,
-      builder: (ctx) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: const Text('全問クリア！',
-            style: TextStyle(fontWeight: FontWeight.w800)),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Icon(Icons.emoji_events_rounded,
-                color: Color(0xFFFF9F1C), size: 56),
-            const SizedBox(height: 12),
-            Text(
-              '$_score 点',
-              style: const TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w900,
-                  color: Color(0xFFF5576C)),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(ctx).pop();
-              Navigator.of(context).pop();
-            },
-            child: const Text('ホームへ'),
-          ),
-          FilledButton(
-            onPressed: () {
-              Navigator.of(ctx).pop();
-              setState(() {
-                _questions.shuffle();
-                _questionIndex = 0;
-                _score = 0;
-                _combo = 0;
-                _correctCount = 0;
-                _selectedChoice = null;
-                _answered = false;
-                _generateChoices();
-              });
-            },
-            child: const Text('もう一度'),
-          ),
-        ],
-      ),
+      score: _score,
+      correct: _correctCount,
+      total: _questions.length,
+      onHome: () => Navigator.of(context).pop(),
+      onRetry: () => setState(() {
+        _questions.shuffle();
+        _questionIndex = 0;
+        _score = 0;
+        _combo = 0;
+        _correctCount = 0;
+        _selectedChoice = null;
+        _answered = false;
+        _generateChoices();
+      }),
     );
   }
 

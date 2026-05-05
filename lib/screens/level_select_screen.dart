@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/question.dart';
 import '../data/questions.dart';
+import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
 import 'decompose_game_screen.dart';
 import 'pattern_game_screen.dart';
@@ -72,6 +73,16 @@ class LevelSelectScreen extends StatelessWidget {
               questionCount: level3Questions.length,
               onTap: () => _startGame(context, 3),
             ),
+            const SizedBox(height: 14),
+            _LevelCard(
+              number: '4',
+              title: '応用文',
+              description: 'M先頭・複雑フレーズを含む文',
+              extra: '文の構造が複雑な上級者向け問題',
+              color: const Color(0xFFE63946),
+              questionCount: level4Questions.length,
+              onTap: () => _startGame(context, 4),
+            ),
           ],
         ),
       ),
@@ -79,6 +90,7 @@ class LevelSelectScreen extends StatelessWidget {
   }
 
   void _startGame(BuildContext context, int level) {
+    SoundService.instance.playNavigation();
     final questions = ([..._questionsForLevel(level)]..shuffle()).take(5).toList();
     final route = mode == GameMode.decompose
         ? MaterialPageRoute(
@@ -101,7 +113,8 @@ class LevelSelectScreen extends StatelessWidget {
   List<Question> _questionsForLevel(int level) => switch (level) {
         1 => level1Questions,
         2 => level2Questions,
-        _ => level3Questions,
+        3 => level3Questions,
+        _ => level4Questions,
       };
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../services/sound_service.dart';
 import '../theme/app_theme.dart';
 import 'how_to_use_screen.dart';
 import 'level_select_screen.dart';
@@ -26,13 +27,16 @@ class HomeScreen extends StatelessWidget {
                   title: '分解モード',
                   subtitle: '単語を S / V / O / C / M に分類しよう',
                   gradient: AppTheme.decomposeGradient,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          const LevelSelectScreen(mode: GameMode.decompose),
-                    ),
-                  ),
+                  onTap: () {
+                    SoundService.instance.playNavigation();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            const LevelSelectScreen(mode: GameMode.decompose),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 14),
                 _ModeCard(
@@ -40,13 +44,16 @@ class HomeScreen extends StatelessWidget {
                   title: '文型判断モード',
                   subtitle: '英文の文型を瞬時に見抜こう',
                   gradient: AppTheme.patternGradient,
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          const LevelSelectScreen(mode: GameMode.pattern),
-                    ),
-                  ),
+                  onTap: () {
+                    SoundService.instance.playNavigation();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            const LevelSelectScreen(mode: GameMode.pattern),
+                      ),
+                    );
+                  },
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -55,11 +62,14 @@ class HomeScreen extends StatelessWidget {
                       child: _SubButton(
                         icon: Icons.help_outline_rounded,
                         label: '使い方',
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const HowToUseScreen()),
-                        ),
+                        onTap: () {
+                          SoundService.instance.playNavigation();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const HowToUseScreen()),
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -67,11 +77,14 @@ class HomeScreen extends StatelessWidget {
                       child: _SubButton(
                         icon: Icons.history_rounded,
                         label: 'プレイ履歴',
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ReportScreen()),
-                        ),
+                        onTap: () {
+                          SoundService.instance.playNavigation();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const ReportScreen()),
+                          );
+                        },
                       ),
                     ),
                   ],
