@@ -156,8 +156,10 @@ class _PatternGameScreenState extends State<PatternGameScreen> {
                     ),
                     const SizedBox(height: 16),
                     GameSentenceCard(
+                        key: ValueKey(_questionIndex),
                         sentence: q.sentence,
-                        shadowColor: const Color(0xFFF5576C)),
+                        shadowColor: const Color(0xFFF5576C),
+                        translation: q.translation),
                     const SizedBox(height: 32),
                     if (_answered)
                       _FeedbackBanner(

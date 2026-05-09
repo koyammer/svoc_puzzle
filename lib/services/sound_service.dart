@@ -1,28 +1,66 @@
 import 'dart:async' show unawaited;
+import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 import 'package:audioplayers/audioplayers.dart';
+import 'settings_service.dart';
 
 class SoundService {
-  SoundService._() {
-    for (int i = 0; i < 5; i++) {
-      _pool.add(AudioPlayer());
-    }
-  }
+  SoundService._();
   static final SoundService instance = SoundService._();
 
   static const int _sr = 44100;
   final List<AudioPlayer> _pool = [];
   int _idx = 0;
+  bool _ready = false;
 
-  // Pre-generated WAV bytes (lazy)
-  late final Uint8List _tapWav = _wav(_tone(1100, 35, 0.45, atk: 2, rel: 18));
-  late final Uint8List _slotWav = _wav(_tone(750, 55, 0.50, atk: 5, rel: 25));
-  late final Uint8List _c5Wav = _wav(_tone(523.25, 90, 0.60, atk: 4, rel: 40));
-  late final Uint8List _e5Wav = _wav(_tone(659.25, 90, 0.60, atk: 4, rel: 40));
-  late final Uint8List _g5Wav = _wav(_tone(783.99, 140, 0.65, atk: 4, rel: 60));
-  late final Uint8List _wrongWav = _wav(_chirp(280, 140, 190, 0.50));
-  late final Uint8List _navWav = _wav(_tone(950, 42, 0.35, atk: 3, rel: 18));
+  late String _tapPath, _slotPath, _wrongPath, _navPath;
+  late String _corC5Path, _corE5Path, _corG5Path;
+  late String _clrG4Path, _clrC5Path, _clrE5Path, _clrG5Path, _clrC6Path;
+
+  /// アプリ起動時に一度だけ呼ぶ。
+  /// ambient カテゴリ = 消音スイッチがオフのときだけ再生。
+  Future<void> init() async {
+    await AudioPlayer.global.setAudioContext(AudioContext(
+      iOS: AudioContextIOS(
+        category: AVAudioSessionCategory.ambient,
+      ),
+      android: const AudioContextAndroid(
+        isSpeakerphoneOn: false,
+        stayAwake: false,
+        contentType: AndroidContentType.sonification,
+        usageType: AndroidUsageType.assistanceSonification,
+        audioFocus: AndroidAudioFocus.none,
+      ),
+    ));
+
+    for (int i = 0; i < 5; i++) {
+      _pool.add(AudioPlayer());
+    }
+
+    // WAV をテンポラリファイルに書き出して DeviceFileSource で再生する。
+    // BytesSource は iOS 実機で不安定なため使用しない。
+    final d = Directory.systemTemp.path;
+    _tapPath   = await _write('$d/svoc_tap.wav',    _tone(1100,   35, 0.45, atk: 2, rel: 18));
+    _slotPath  = await _write('$d/svoc_slot.wav',   _tone(750,    55, 0.50, atk: 5, rel: 25));
+    _wrongPath = await _write('$d/svoc_wrong.wav',  _chirp(280, 140, 190, 0.50));
+    _navPath   = await _write('$d/svoc_nav.wav',    _tone(950,    42, 0.35, atk: 3, rel: 18));
+    _corC5Path = await _write('$d/svoc_cor_c5.wav', _tone(523.25, 90, 0.60, atk: 4, rel: 40));
+    _corE5Path = await _write('$d/svoc_cor_e5.wav', _tone(659.25, 90, 0.60, atk: 4, rel: 40));
+    _corG5Path = await _write('$d/svoc_cor_g5.wav', _tone(783.99,140, 0.65, atk: 4, rel: 60));
+    _clrG4Path = await _write('$d/svoc_clr_g4.wav', _tone(392.0,  65, 0.55, atk: 2, rel: 65 * 0.35));
+    _clrC5Path = await _write('$d/svoc_clr_c5.wav', _tone(523.25, 65, 0.55, atk: 2, rel: 65 * 0.35));
+    _clrE5Path = await _write('$d/svoc_clr_e5.wav', _tone(659.25, 65, 0.60, atk: 2, rel: 65 * 0.35));
+    _clrG5Path = await _write('$d/svoc_clr_g5.wav', _tone(783.99, 65, 0.62, atk: 2, rel: 65 * 0.35));
+    _clrC6Path = await _write('$d/svoc_clr_c6.wav', _tone(1046.5,340, 0.68, atk: 2, rel: 340 * 0.35));
+
+    _ready = true;
+  }
+
+  Future<String> _write(String path, List<int> samples) async {
+    await File(path).writeAsBytes(_wav(samples));
+    return path;
+  }
 
   AudioPlayer get _next {
     final p = _pool[_idx];
@@ -30,39 +68,40 @@ class SoundService {
     return p;
   }
 
-  void playTap() => unawaited(_next.play(BytesSource(_tapWav)));
-  void playSlotFill() => unawaited(_next.play(BytesSource(_slotWav)));
-  void playWrong() => unawaited(_next.play(BytesSource(_wrongWav)));
-  void playNavigation() => unawaited(_next.play(BytesSource(_navWav)));
+  bool get _on => _ready && SettingsService.instance.soundEnabled;
+
+  void playTap()        { if (_on) unawaited(_next.play(DeviceFileSource(_tapPath))); }
+  void playSlotFill()   { if (_on) unawaited(_next.play(DeviceFileSource(_slotPath))); }
+  void playWrong()      { if (_on) unawaited(_next.play(DeviceFileSource(_wrongPath))); }
+  void playNavigation() { if (_on) unawaited(_next.play(DeviceFileSource(_navPath))); }
 
   void playCorrect() {
-    unawaited(_next.play(BytesSource(_c5Wav)));
-    Future.delayed(const Duration(milliseconds: 95), () => unawaited(_next.play(BytesSource(_e5Wav))));
-    Future.delayed(const Duration(milliseconds: 190), () => unawaited(_next.play(BytesSource(_g5Wav))));
+    if (!_on) return;
+    unawaited(_next.play(DeviceFileSource(_corC5Path)));
+    Future.delayed(const Duration(milliseconds: 95),  () => unawaited(_next.play(DeviceFileSource(_corE5Path))));
+    Future.delayed(const Duration(milliseconds: 190), () => unawaited(_next.play(DeviceFileSource(_corG5Path))));
   }
 
-  /// 5-note ascending fanfare: G4 → C5 → E5 → G5 → C6
   void playClear() {
-    _scheduleNote(392.0, 65, 0.55, 0);
-    _scheduleNote(523.25, 65, 0.55, 80);
-    _scheduleNote(659.25, 65, 0.60, 160);
-    _scheduleNote(783.99, 65, 0.62, 240);
-    _scheduleNote(1046.5, 340, 0.68, 320);
+    if (!_on) return;
+    _playAt(_clrG4Path, 0);
+    _playAt(_clrC5Path, 80);
+    _playAt(_clrE5Path, 160);
+    _playAt(_clrG5Path, 240);
+    _playAt(_clrC6Path, 320);
   }
 
-  void _scheduleNote(double freq, int ms, double amp, int delayMs) {
-    final bytes = _wav(_tone(freq, ms, amp, atk: 2, rel: ms * 0.35));
+  void _playAt(String path, int delayMs) {
     if (delayMs == 0) {
-      unawaited(_next.play(BytesSource(bytes)));
+      unawaited(_next.play(DeviceFileSource(path)));
     } else {
       Future.delayed(Duration(milliseconds: delayMs),
-          () => unawaited(_next.play(BytesSource(bytes))));
+          () => unawaited(_next.play(DeviceFileSource(path))));
     }
   }
 
   // ─── DSP helpers ─────────────────────────────────────────────────────────
 
-  /// Pure sine + 2nd harmonic tone with smoothstep envelope.
   List<int> _tone(double freq, int ms, double amp, {double atk = 5, double rel = 20}) {
     final n = (_sr * ms / 1000).round();
     final a = (_sr * atk / 1000).round();
@@ -75,7 +114,6 @@ class SoundService {
     });
   }
 
-  /// Exponential frequency sweep (chirp) — used for wrong-answer sound.
   List<int> _chirp(double f0, double f1, int ms, double amp) {
     final n = (_sr * ms / 1000).round();
     final r = (_sr * 30.0 / 1000).round();
@@ -109,14 +147,13 @@ class SoundService {
         b.setUint8(offset + i, s.codeUnitAt(i));
       }
     }
-
     setChars(0, 'RIFF');
     b.setUint32(4, 36 + dataSize, Endian.little);
     setChars(8, 'WAVE');
     setChars(12, 'fmt ');
     b.setUint32(16, 16, Endian.little);
-    b.setUint16(20, 1, Endian.little);  // PCM
-    b.setUint16(22, 1, Endian.little);  // mono
+    b.setUint16(20, 1, Endian.little);
+    b.setUint16(22, 1, Endian.little);
     b.setUint32(24, _sr, Endian.little);
     b.setUint32(28, _sr * 2, Endian.little);
     b.setUint16(32, 2, Endian.little);

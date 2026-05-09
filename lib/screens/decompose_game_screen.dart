@@ -235,8 +235,10 @@ class _DecomposeGameScreenState extends State<DecomposeGameScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     GameSentenceCard(
+                        key: ValueKey(_questionIndex),
                         sentence: q.sentence,
-                        shadowColor: const Color(0xFF667EEA)),
+                        shadowColor: const Color(0xFF667EEA),
+                        translation: q.translation),
                     const SizedBox(height: 14),
 
                     if (_questionComplete)

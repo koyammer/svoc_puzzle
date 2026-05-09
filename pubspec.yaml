@@ -1,5 +1,5 @@
 name: svoc_puzzle
-description: "A new Flutter project."
+description: "英語の文法構造（SVOC）をゲームで楽しく学べる学習アプリ。分解モードと文型判断モードで実力を磨こう。"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

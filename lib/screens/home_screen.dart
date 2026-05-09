@@ -4,6 +4,7 @@ import '../theme/app_theme.dart';
 import 'how_to_use_screen.dart';
 import 'level_select_screen.dart';
 import 'report_screen.dart';
+import 'settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,7 +15,9 @@ class HomeScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(gradient: AppTheme.homeGradient),
         child: SafeArea(
-          child: Padding(
+          child: Stack(
+            children: [
+              Padding(
             padding: const EdgeInsets.symmetric(horizontal: 28),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -92,6 +95,25 @@ class HomeScreen extends StatelessWidget {
                 const Spacer(flex: 2),
               ],
             ),
+          ),
+              // 設定ボタン
+              Positioned(
+                top: 8,
+                right: 4,
+                child: IconButton(
+                  icon: const Icon(Icons.settings_rounded,
+                      color: Colors.white60, size: 24),
+                  onPressed: () {
+                    SoundService.instance.playNavigation();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const SettingsScreen()),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
