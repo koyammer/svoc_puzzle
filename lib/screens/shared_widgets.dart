@@ -165,40 +165,134 @@ class GameScoreBar extends StatelessWidget {
   }
 }
 
-class GameSentenceCard extends StatelessWidget {
+class GameSentenceCard extends StatefulWidget {
   final String sentence;
   final Color shadowColor;
+  final String? translation;
 
   const GameSentenceCard({
     super.key,
     required this.sentence,
     required this.shadowColor,
+    this.translation,
+  });
+
+  @override
+  State<GameSentenceCard> createState() => _GameSentenceCardState();
+}
+
+class _GameSentenceCardState extends State<GameSentenceCard> {
+  bool _showTranslation = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: widget.shadowColor.withValues(alpha: 0.12),
+                blurRadius: 20,
+                offset: const Offset(0, 5),
+              ),
+            ],
+          ),
+          child: Text(
+            widget.sentence,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.4,
+              height: 1.4,
+            ),
+          ),
+        ),
+        if (widget.translation != null) ...[
+          const SizedBox(height: 8),
+          Center(
+            child: _TranslationButton(
+              translation: widget.translation!,
+              isShowing: _showTranslation,
+              onTap: () => setState(() => _showTranslation = !_showTranslation),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _TranslationButton extends StatelessWidget {
+  final String translation;
+  final bool isShowing;
+  final VoidCallback onTap;
+
+  const _TranslationButton({
+    required this.translation,
+    required this.isShowing,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: shadowColor.withValues(alpha: 0.12),
-            blurRadius: 20,
-            offset: const Offset(0, 5),
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeOut,
+        constraints: const BoxConstraints(minWidth: 120),
+        padding: EdgeInsets.symmetric(
+          horizontal: isShowing ? 20 : 14,
+          vertical: isShowing ? 11 : 7,
+        ),
+        decoration: BoxDecoration(
+          color: isShowing
+              ? Colors.black.withValues(alpha: 0.04)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: Colors.black.withValues(alpha: 0.1),
+            width: 1,
           ),
-        ],
-      ),
-      child: Text(
-        sentence,
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w600,
-          letterSpacing: 0.4,
-          height: 1.4,
+        ),
+        child: AnimatedSwitcher(
+          duration: const Duration(milliseconds: 160),
+          child: isShowing
+              ? Text(
+                  translation,
+                  key: const ValueKey('t'),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w500,
+                    height: 1.5,
+                  ),
+                )
+              : Row(
+                  key: const ValueKey('b'),
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Icon(Icons.translate_rounded,
+                        size: 13, color: Colors.black38),
+                    SizedBox(width: 5),
+                    Text(
+                      '日本語訳を見る',
+                      style: TextStyle(
+                        color: Colors.black38,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
         ),
       ),
     );

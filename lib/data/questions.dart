@@ -6,6 +6,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q001',
     sentence: 'He runs.',
+    translation: '彼は走る。',
     level: 1,
     pattern: 'SV',
     tokens: ['He', 'runs'],
@@ -14,6 +15,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q002',
     sentence: 'She is happy.',
+    translation: '彼女は幸せだ。',
     level: 1,
     pattern: 'SVC',
     tokens: ['She', 'is', 'happy'],
@@ -22,6 +24,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q003',
     sentence: 'I like coffee.',
+    translation: '私はコーヒーが好きだ。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'like', 'coffee'],
@@ -30,6 +33,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q004',
     sentence: 'They swim.',
+    translation: '彼らは泳ぐ。',
     level: 1,
     pattern: 'SV',
     tokens: ['They', 'swim'],
@@ -38,6 +42,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q005',
     sentence: 'He is a doctor.',
+    translation: '彼は医者だ。',
     level: 1,
     pattern: 'SVC',
     tokens: ['He', 'is', 'a doctor'],
@@ -46,6 +51,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q006',
     sentence: 'We love music.',
+    translation: '私たちは音楽が大好きだ。',
     level: 1,
     pattern: 'SVO',
     tokens: ['We', 'love', 'music'],
@@ -54,6 +60,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q007',
     sentence: 'She looks tired.',
+    translation: '彼女は疲れているように見える。',
     level: 1,
     pattern: 'SVC',
     tokens: ['She', 'looks', 'tired'],
@@ -62,6 +69,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q008',
     sentence: 'I read books.',
+    translation: '私は本を読む。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'read', 'books'],
@@ -70,6 +78,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q009',
     sentence: 'She dances.',
+    translation: '彼女は踊る。',
     level: 1,
     pattern: 'SV',
     tokens: ['She', 'dances'],
@@ -78,6 +87,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q010',
     sentence: 'We are friends.',
+    translation: '私たちは友達だ。',
     level: 1,
     pattern: 'SVC',
     tokens: ['We', 'are', 'friends'],
@@ -86,6 +96,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q011',
     sentence: 'I eat breakfast.',
+    translation: '私は朝食を食べる。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'eat', 'breakfast'],
@@ -94,6 +105,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q012',
     sentence: 'He feels sick.',
+    translation: '彼は気分が悪い。',
     level: 1,
     pattern: 'SVC',
     tokens: ['He', 'feels', 'sick'],
@@ -102,6 +114,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q013',
     sentence: 'They play soccer.',
+    translation: '彼らはサッカーをする。',
     level: 1,
     pattern: 'SVO',
     tokens: ['They', 'play', 'soccer'],
@@ -110,6 +123,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q014',
     sentence: 'She became a nurse.',
+    translation: '彼女は看護師になった。',
     level: 1,
     pattern: 'SVC',
     tokens: ['She', 'became', 'a nurse'],
@@ -118,6 +132,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q015',
     sentence: 'I watch movies.',
+    translation: '私は映画を見る。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'watch', 'movies'],
@@ -126,6 +141,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q016',
     sentence: 'He became angry.',
+    translation: '彼は怒った。',
     level: 1,
     pattern: 'SVC',
     tokens: ['He', 'became', 'angry'],
@@ -134,6 +150,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q017',
     sentence: 'Birds fly.',
+    translation: '鳥は飛ぶ。',
     level: 1,
     pattern: 'SV',
     tokens: ['Birds', 'fly'],
@@ -142,6 +159,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q018',
     sentence: 'Dogs bark.',
+    translation: '犬は吠える。',
     level: 1,
     pattern: 'SV',
     tokens: ['Dogs', 'bark'],
@@ -150,6 +168,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q019',
     sentence: 'Babies cry.',
+    translation: '赤ちゃんは泣く。',
     level: 1,
     pattern: 'SV',
     tokens: ['Babies', 'cry'],
@@ -158,6 +177,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q020',
     sentence: 'She sang.',
+    translation: '彼女は歌った。',
     level: 1,
     pattern: 'SV',
     tokens: ['She', 'sang'],
@@ -166,6 +186,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q021',
     sentence: 'It sounds good.',
+    translation: 'それは良さそうだ。',
     level: 1,
     pattern: 'SVC',
     tokens: ['It', 'sounds', 'good'],
@@ -174,6 +195,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q022',
     sentence: 'The soup smells nice.',
+    translation: 'そのスープはいい香りがする。',
     level: 1,
     pattern: 'SVC',
     tokens: ['The soup', 'smells', 'nice'],
@@ -182,6 +204,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q023',
     sentence: 'He seems kind.',
+    translation: '彼は親切そうだ。',
     level: 1,
     pattern: 'SVC',
     tokens: ['He', 'seems', 'kind'],
@@ -190,6 +213,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q024',
     sentence: 'She stayed calm.',
+    translation: '彼女は落ち着いたままだった。',
     level: 1,
     pattern: 'SVC',
     tokens: ['She', 'stayed', 'calm'],
@@ -198,6 +222,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q025',
     sentence: 'I have a cat.',
+    translation: '私は猫を飼っている。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'have', 'a cat'],
@@ -206,6 +231,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q026',
     sentence: 'He drives a car.',
+    translation: '彼は車を運転する。',
     level: 1,
     pattern: 'SVO',
     tokens: ['He', 'drives', 'a car'],
@@ -214,6 +240,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q027',
     sentence: 'They speak English.',
+    translation: '彼らは英語を話す。',
     level: 1,
     pattern: 'SVO',
     tokens: ['They', 'speak', 'English'],
@@ -222,6 +249,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q028',
     sentence: 'She writes letters.',
+    translation: '彼女は手紙を書く。',
     level: 1,
     pattern: 'SVO',
     tokens: ['She', 'writes', 'letters'],
@@ -230,6 +258,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q029',
     sentence: 'I need help.',
+    translation: '私は助けが必要だ。',
     level: 1,
     pattern: 'SVO',
     tokens: ['I', 'need', 'help'],
@@ -238,6 +267,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q030',
     sentence: 'It tastes sweet.',
+    translation: 'それは甘い味がする。',
     level: 1,
     pattern: 'SVC',
     tokens: ['It', 'tastes', 'sweet'],
@@ -246,6 +276,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q031',
     sentence: 'We walked.',
+    translation: '私たちは歩いた。',
     level: 1,
     pattern: 'SV',
     tokens: ['We', 'walked'],
@@ -254,6 +285,7 @@ const List<Question> level1Questions = [
   Question(
     id: 'q032',
     sentence: 'He broke the window.',
+    translation: '彼は窓を割った。',
     level: 1,
     pattern: 'SVO',
     tokens: ['He', 'broke', 'the window'],
@@ -267,6 +299,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q101',
     sentence: 'She gave me a book.',
+    translation: '彼女は私に本をくれた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['She', 'gave', 'me', 'a book'],
@@ -275,6 +308,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q102',
     sentence: 'I made him happy.',
+    translation: '私は彼を幸せにした。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['I', 'made', 'him', 'happy'],
@@ -283,6 +317,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q103',
     sentence: 'He sent her a letter.',
+    translation: '彼は彼女に手紙を送った。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'sent', 'her', 'a letter'],
@@ -291,6 +326,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q104',
     sentence: 'She made the room clean.',
+    translation: '彼女は部屋をきれいにした。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'made', 'the room', 'clean'],
@@ -299,6 +335,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q105',
     sentence: 'I call him Ken.',
+    translation: '私は彼をケンと呼ぶ。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['I', 'call', 'him', 'Ken'],
@@ -307,6 +344,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q106',
     sentence: 'They showed us the way.',
+    translation: '彼らは私たちに道を教えてくれた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['They', 'showed', 'us', 'the way'],
@@ -315,6 +353,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q107',
     sentence: 'She found the work easy.',
+    translation: '彼女はその仕事が簡単だと思った。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'found', 'the work', 'easy'],
@@ -323,6 +362,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q108',
     sentence: 'He taught me English.',
+    translation: '彼は私に英語を教えた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'taught', 'me', 'English'],
@@ -331,6 +371,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q109',
     sentence: 'I told him the news.',
+    translation: '私は彼にそのニュースを伝えた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['I', 'told', 'him', 'the news'],
@@ -339,6 +380,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q110',
     sentence: 'She kept the room clean.',
+    translation: '彼女は部屋をきれいにしておいた。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'kept', 'the room', 'clean'],
@@ -347,6 +389,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q111',
     sentence: 'He asked me a question.',
+    translation: '彼は私に質問した。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'asked', 'me', 'a question'],
@@ -355,6 +398,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q112',
     sentence: 'They named the baby Tom.',
+    translation: '彼らはその赤ちゃんをトムと名付けた。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['They', 'named', 'the baby', 'Tom'],
@@ -363,6 +407,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q113',
     sentence: 'I bought her flowers.',
+    translation: '私は彼女に花を買った。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['I', 'bought', 'her', 'flowers'],
@@ -371,6 +416,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q114',
     sentence: 'She made him sad.',
+    translation: '彼女は彼を悲しませた。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'made', 'him', 'sad'],
@@ -379,6 +425,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q115',
     sentence: 'He lent me his book.',
+    translation: '彼は私に彼の本を貸してくれた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'lent', 'me', 'his book'],
@@ -387,6 +434,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q116',
     sentence: 'We elected him leader.',
+    translation: '私たちは彼をリーダーに選んだ。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['We', 'elected', 'him', 'leader'],
@@ -395,6 +443,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q117',
     sentence: 'I wrote him a letter.',
+    translation: '私は彼に手紙を書いた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['I', 'wrote', 'him', 'a letter'],
@@ -403,6 +452,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q118',
     sentence: 'She cooked us dinner.',
+    translation: '彼女は私たちに夕食を作ってくれた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['She', 'cooked', 'us', 'dinner'],
@@ -411,6 +461,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q119',
     sentence: 'He passed her the salt.',
+    translation: '彼は彼女に塩を渡した。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'passed', 'her', 'the salt'],
@@ -419,6 +470,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q120',
     sentence: 'They offered me a job.',
+    translation: '彼らは私に仕事を提供した。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['They', 'offered', 'me', 'a job'],
@@ -427,6 +479,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q121',
     sentence: 'She read him a story.',
+    translation: '彼女は彼に物語を読んであげた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['She', 'read', 'him', 'a story'],
@@ -435,6 +488,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q122',
     sentence: 'I made her a cake.',
+    translation: '私は彼女にケーキを作った。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['I', 'made', 'her', 'a cake'],
@@ -443,6 +497,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q123',
     sentence: 'He showed me the photo.',
+    translation: '彼は私にその写真を見せた。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['He', 'showed', 'me', 'the photo'],
@@ -451,6 +506,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q124',
     sentence: 'She got him a present.',
+    translation: '彼女は彼にプレゼントを買った。',
     level: 2,
     pattern: 'SVOO',
     tokens: ['She', 'got', 'him', 'a present'],
@@ -459,6 +515,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q125',
     sentence: 'I found the test difficult.',
+    translation: '私はそのテストが難しいと思った。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['I', 'found', 'the test', 'difficult'],
@@ -467,6 +524,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q126',
     sentence: 'She painted her room white.',
+    translation: '彼女は部屋を白く塗った。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'painted', 'her room', 'white'],
@@ -475,6 +533,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q127',
     sentence: 'He left the door open.',
+    translation: '彼はドアを開けたままにした。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['He', 'left', 'the door', 'open'],
@@ -483,6 +542,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q128',
     sentence: 'They consider him smart.',
+    translation: '彼らは彼を頭が良いと思っている。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['They', 'consider', 'him', 'smart'],
@@ -491,6 +551,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q129',
     sentence: 'We found the movie boring.',
+    translation: '私たちはその映画が退屈だと思った。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['We', 'found', 'the movie', 'boring'],
@@ -499,6 +560,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q130',
     sentence: 'She kept him waiting.',
+    translation: '彼女は彼を待たせ続けた。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['She', 'kept', 'him', 'waiting'],
@@ -507,6 +569,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q131',
     sentence: 'They made her captain.',
+    translation: '彼らは彼女をキャプテンにした。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['They', 'made', 'her', 'captain'],
@@ -515,6 +578,7 @@ const List<Question> level2Questions = [
   Question(
     id: 'q132',
     sentence: 'I think him honest.',
+    translation: '私は彼を正直だと思う。',
     level: 2,
     pattern: 'SVOC',
     tokens: ['I', 'think', 'him', 'honest'],
@@ -528,6 +592,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q201',
     sentence: 'I bought a book yesterday.',
+    translation: '私は昨日本を買った。',
     level: 3,
     pattern: 'SVO',
     tokens: ['I', 'bought', 'a book', 'yesterday'],
@@ -536,6 +601,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q202',
     sentence: 'She lives in Tokyo.',
+    translation: '彼女は東京に住んでいる。',
     level: 3,
     pattern: 'SV',
     tokens: ['She', 'lives', 'in Tokyo'],
@@ -544,6 +610,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q203',
     sentence: 'I study English every morning.',
+    translation: '私は毎朝英語を勉強する。',
     level: 3,
     pattern: 'SVO',
     tokens: ['I', 'study', 'English', 'every morning'],
@@ -552,6 +619,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q204',
     sentence: 'He works at a hospital.',
+    translation: '彼は病院で働いている。',
     level: 3,
     pattern: 'SV',
     tokens: ['He', 'works', 'at a hospital'],
@@ -560,6 +628,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q205',
     sentence: 'They play tennis on weekends.',
+    translation: '彼らは週末にテニスをする。',
     level: 3,
     pattern: 'SVO',
     tokens: ['They', 'play', 'tennis', 'on weekends'],
@@ -568,6 +637,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q206',
     sentence: 'She is happy today.',
+    translation: '彼女は今日幸せだ。',
     level: 3,
     pattern: 'SVC',
     tokens: ['She', 'is', 'happy', 'today'],
@@ -576,6 +646,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q207',
     sentence: 'I gave him a gift yesterday.',
+    translation: '私は昨日彼にプレゼントをあげた。',
     level: 3,
     pattern: 'SVOO',
     tokens: ['I', 'gave', 'him', 'a gift', 'yesterday'],
@@ -584,6 +655,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q208',
     sentence: 'He made her happy at the party.',
+    translation: '彼はパーティーで彼女を幸せにした。',
     level: 3,
     pattern: 'SVOC',
     tokens: ['He', 'made', 'her', 'happy', 'at the party'],
@@ -598,6 +670,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q209',
     sentence: 'He runs in the park.',
+    translation: '彼は公園で走る。',
     level: 3,
     pattern: 'SV',
     tokens: ['He', 'runs', 'in the park'],
@@ -606,6 +679,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q210',
     sentence: 'I called her yesterday.',
+    translation: '私は昨日彼女に電話した。',
     level: 3,
     pattern: 'SVO',
     tokens: ['I', 'called', 'her', 'yesterday'],
@@ -614,6 +688,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q211',
     sentence: 'He became famous last year.',
+    translation: '彼は昨年有名になった。',
     level: 3,
     pattern: 'SVC',
     tokens: ['He', 'became', 'famous', 'last year'],
@@ -627,6 +702,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q212',
     sentence: 'She is busy now.',
+    translation: '彼女は今忙しい。',
     level: 3,
     pattern: 'SVC',
     tokens: ['She', 'is', 'busy', 'now'],
@@ -635,6 +711,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q213',
     sentence: 'They have lunch in the office.',
+    translation: '彼らはオフィスで昼食をとる。',
     level: 3,
     pattern: 'SVO',
     tokens: ['They', 'have', 'lunch', 'in the office'],
@@ -648,6 +725,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q214',
     sentence: 'I sent him a message last night.',
+    translation: '私は昨夜彼にメッセージを送った。',
     level: 3,
     pattern: 'SVOO',
     tokens: ['I', 'sent', 'him', 'a message', 'last night'],
@@ -661,6 +739,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q215',
     sentence: 'He plays guitar at night.',
+    translation: '彼は夜ギターを弾く。',
     level: 3,
     pattern: 'SVO',
     tokens: ['He', 'plays', 'guitar', 'at night'],
@@ -669,6 +748,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q216',
     sentence: 'She found him asleep in the car.',
+    translation: '彼女は車の中で彼が眠っているのを見つけた。',
     level: 3,
     pattern: 'SVOC',
     tokens: ['She', 'found', 'him', 'asleep', 'in the car'],
@@ -683,6 +763,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q217',
     sentence: 'She sings at school.',
+    translation: '彼女は学校で歌う。',
     level: 3,
     pattern: 'SV',
     tokens: ['She', 'sings', 'at school'],
@@ -691,6 +772,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q218',
     sentence: 'He reads books at night.',
+    translation: '彼は夜に本を読む。',
     level: 3,
     pattern: 'SVO',
     tokens: ['He', 'reads', 'books', 'at night'],
@@ -699,6 +781,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q219',
     sentence: 'They ate lunch together.',
+    translation: '彼らは一緒に昼食を食べた。',
     level: 3,
     pattern: 'SVO',
     tokens: ['They', 'ate', 'lunch', 'together'],
@@ -707,6 +790,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q220',
     sentence: 'I feel tired today.',
+    translation: '私は今日疲れている。',
     level: 3,
     pattern: 'SVC',
     tokens: ['I', 'feel', 'tired', 'today'],
@@ -715,6 +799,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q221',
     sentence: 'She became a star overnight.',
+    translation: '彼女は一夜にしてスターになった。',
     level: 3,
     pattern: 'SVC',
     tokens: ['She', 'became', 'a star', 'overnight'],
@@ -723,6 +808,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q222',
     sentence: 'He sent me a gift last week.',
+    translation: '彼は先週私にプレゼントを送ってくれた。',
     level: 3,
     pattern: 'SVOO',
     tokens: ['He', 'sent', 'me', 'a gift', 'last week'],
@@ -731,6 +817,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q223',
     sentence: 'She kept the baby calm all night.',
+    translation: '彼女は一晩中赤ちゃんを落ち着かせ続けた。',
     level: 3,
     pattern: 'SVOC',
     tokens: ['She', 'kept', 'the baby', 'calm', 'all night'],
@@ -745,6 +832,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q224',
     sentence: 'I met him in the library.',
+    translation: '私は図書館で彼に会った。',
     level: 3,
     pattern: 'SVO',
     tokens: ['I', 'met', 'him', 'in the library'],
@@ -753,6 +841,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q225',
     sentence: 'He left early.',
+    translation: '彼は早く去った。',
     level: 3,
     pattern: 'SV',
     tokens: ['He', 'left', 'early'],
@@ -761,6 +850,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q226',
     sentence: 'We had dinner together.',
+    translation: '私たちは一緒に夕食を食べた。',
     level: 3,
     pattern: 'SVO',
     tokens: ['We', 'had', 'dinner', 'together'],
@@ -769,6 +859,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q227',
     sentence: 'She is smart at math.',
+    translation: '彼女は数学が得意だ。',
     level: 3,
     pattern: 'SVC',
     tokens: ['She', 'is', 'smart', 'at math'],
@@ -777,6 +868,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q228',
     sentence: 'I told her the truth at last.',
+    translation: '私はついに彼女に真実を話した。',
     level: 3,
     pattern: 'SVOO',
     tokens: ['I', 'told', 'her', 'the truth', 'at last'],
@@ -785,6 +877,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q229',
     sentence: 'He made his parents proud this time.',
+    translation: '彼は今回両親を誇りに思わせた。',
     level: 3,
     pattern: 'SVOC',
     tokens: ['He', 'made', 'his parents', 'proud', 'this time'],
@@ -799,6 +892,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q230',
     sentence: 'She teaches us math on Fridays.',
+    translation: '彼女は金曜日に私たちに数学を教える。',
     level: 3,
     pattern: 'SVOO',
     tokens: ['She', 'teaches', 'us', 'math', 'on Fridays'],
@@ -807,6 +901,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q231',
     sentence: 'He jogs every day.',
+    translation: '彼は毎日ジョギングする。',
     level: 3,
     pattern: 'SV',
     tokens: ['He', 'jogs', 'every day'],
@@ -815,6 +910,7 @@ const List<Question> level3Questions = [
   Question(
     id: 'q232',
     sentence: 'I found her sleeping in class.',
+    translation: '私は授業中に彼女が眠っているのを見つけた。',
     level: 3,
     pattern: 'SVOC',
     tokens: ['I', 'found', 'her', 'sleeping', 'in class'],
@@ -834,6 +930,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q301',
     sentence: 'In the morning, she runs.',
+    translation: '朝、彼女は走る。',
     level: 4,
     pattern: 'SV',
     tokens: ['In the morning', 'she', 'runs'],
@@ -842,6 +939,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q302',
     sentence: 'Every day, I read the news.',
+    translation: '毎日、私はニュースを読む。',
     level: 4,
     pattern: 'SVO',
     tokens: ['Every day', 'I', 'read', 'the news'],
@@ -850,6 +948,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q303',
     sentence: 'Last night, he sent her a message.',
+    translation: '昨夜、彼は彼女にメッセージを送った。',
     level: 4,
     pattern: 'SVOO',
     tokens: ['Last night', 'he', 'sent', 'her', 'a message'],
@@ -858,6 +957,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q304',
     sentence: 'Slowly, she became calm.',
+    translation: 'ゆっくりと、彼女は落ち着いた。',
     level: 4,
     pattern: 'SVC',
     tokens: ['Slowly', 'she', 'became', 'calm'],
@@ -866,6 +966,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q305',
     sentence: 'He proved the theory wrong.',
+    translation: '彼はその理論が間違いだと証明した。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['He', 'proved', 'the theory', 'wrong'],
@@ -874,6 +975,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q306',
     sentence: 'She found the problem very difficult.',
+    translation: '彼女はその問題がとても難しいと思った。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['She', 'found', 'the problem', 'very difficult'],
@@ -882,6 +984,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q307',
     sentence: 'The coach kept the players motivated.',
+    translation: 'コーチは選手たちのやる気を維持させた。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['The coach', 'kept', 'the players', 'motivated'],
@@ -890,6 +993,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q308',
     sentence: 'They appointed him the new manager.',
+    translation: '彼らは彼を新しいマネージャーに任命した。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['They', 'appointed', 'him', 'the new manager'],
@@ -898,6 +1002,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q309',
     sentence: 'In the end, they called him a genius.',
+    translation: '結局、彼らは彼を天才と呼んだ。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['In the end', 'they', 'called', 'him', 'a genius'],
@@ -912,6 +1017,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q310',
     sentence: 'She left him a note on the desk.',
+    translation: '彼女は机の上に彼へのメモを残した。',
     level: 4,
     pattern: 'SVOO',
     tokens: ['She', 'left', 'him', 'a note', 'on the desk'],
@@ -920,6 +1026,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q311',
     sentence: 'At last, he told her the truth.',
+    translation: 'ついに、彼は彼女に真実を話した。',
     level: 4,
     pattern: 'SVOO',
     tokens: ['At last', 'he', 'told', 'her', 'the truth'],
@@ -928,6 +1035,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q312',
     sentence: 'She painted the wall bright yellow.',
+    translation: '彼女は壁を明るい黄色に塗った。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['She', 'painted', 'the wall', 'bright yellow'],
@@ -936,6 +1044,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q313',
     sentence: 'On weekends, she teaches them yoga.',
+    translation: '週末に、彼女は彼らにヨガを教える。',
     level: 4,
     pattern: 'SVOO',
     tokens: ['On weekends', 'she', 'teaches', 'them', 'yoga'],
@@ -944,6 +1053,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q314',
     sentence: 'The news made everyone worried.',
+    translation: 'そのニュースは皆を心配させた。',
     level: 4,
     pattern: 'SVOC',
     tokens: ['The news', 'made', 'everyone', 'worried'],
@@ -952,6 +1062,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q315',
     sentence: 'During the meeting, he stayed quiet.',
+    translation: '会議中、彼は静かにしていた。',
     level: 4,
     pattern: 'SVC',
     tokens: ['During the meeting', 'he', 'stayed', 'quiet'],
@@ -960,6 +1071,7 @@ const List<Question> level4Questions = [
   Question(
     id: 'q316',
     sentence: 'He gave the class a test yesterday.',
+    translation: '彼は昨日クラスにテストを行った。',
     level: 4,
     pattern: 'SVOO',
     tokens: ['He', 'gave', 'the class', 'a test', 'yesterday'],

@@ -1,6 +1,7 @@
 class Question {
   final String id;
   final String sentence;
+  final String translation;
   final int level;
   final String pattern;
   final List<String> tokens;
@@ -9,6 +10,7 @@ class Question {
   const Question({
     required this.id,
     required this.sentence,
+    required this.translation,
     required this.level,
     required this.pattern,
     required this.tokens,
